@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    /* 你的原有 style 完全不變（這裡省略以節省篇幅） */
+    body { background-color: #ffffff; margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+    .global-title { font-size: 24px; font-weight: bold; color: #000000; margin-bottom: 20px; }
+    .amp-container { display: flex; gap: 20px; }
+    .amp-wrapper { min-width: 320px; display: flex; flex-direction: column; position: relative; height: 200px; }
+    .amp-title { font-size: 18px; font-weight: bold; color: #222222; padding: 10px 15px; background-color: #ffffff; border-radius: 10px 10px 0 0; margin: 0; }
+    .amp { background-color: #f0f0f0; padding: 15px; border-radius: 0 0 10px 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex: 1; }
+    .amp-controls { background-color: #000; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px; }
+    .amp-controls button { color: #fff; font-weight: bold; border: none; font-size: 22px; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.1s; }
+    .amp-controls button:active { transform: scale(0.95); }
+    .play { background-color: green; }
+    .pause { background-color: orange; }
+    .stop { background-color: red; }
+    .amp-controls label { color: #fff; }
+    .volume { flex: 1; accent-color: #fff; }
+
+    .lyrics-container {
+      position: absolute; top: 0; width: 100%; height: 80vh;
+      background: #fff9c4; border-radius: 12px; padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); opacity: 1; pointer-events: auto;
+      z-index: 10; overflow-y: scroll; scroll-behavior: smooth;
+    }
+    .lyrics-container::-webkit-scrollbar { width: 0; background: transparent; }
+    .lyrics-container { scrollbar-width: none; }
+    .lyrics-text { font-size: 15px; line-height: 1.5; color: #222; white-space: pre-line; }
+
+    @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeoutShrink { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.8); } }
+  </style>
+</head>
+<body>
+  <h1 class="global-title"></h1>
+  <div class="amp-container">
+
+    <!-- 第一台擴音機 -->
+    <div class="amp-wrapper">
+    <div class="amp-title">🎵《 一个可爱的清晨 》1 女声 </div>
+    <div class="amp">
+      <audio class="audio-player">
+        <source src="https://raw.githubusercontent.com/hilcm/CD-record/main/一个可爱的早晨.mp3" type="audio/mpeg">
+        </audio>
+        <div class="amp-controls">
+          <button class="play">▶</button>
+          <button class="pause">Ⅱ</button>
+          <button class="stop">■</button>
+          <label>音量</label>
+          <input class="volume" type="range" min="0" max="1" step="0.05" value="0.8">
+        </div>
+      </div>
+      <!-- 新增：隱藏的歌詞資料區（直接貼上完整歌詞） -->
+      <div class="lyrics-data" style="display:none;">
+ 　
+《一个可爱的清晨》1 
+   微电影《斜晖脉脉》主题曲
+作曲：秋潭　　　填词：秋潭
+
+谁教人关爱心疼
+谁受人敬重感恩
+是那含泪的孩子
+那热爱工作的老人
+是那含泪的孩子
+那热爱工作的老人          
+……   ……   ……
+孩子哟你笑吧
+你呐喊飞奔
+血浇的花朵
+泪灌的花朵
+最是甜美缤纷
+血浇的花朵
+泪灌的花朵
+最是甜美缤纷        
+……   ……   ……
+片片落叶
+带来了秋的消息
+愿飒爽的风哟
+溶和汗与泪
+化作永恒
+化作美善真
+在这可爱的清晨
+      
+    </div>
+</div>
+    <!-- 第二台擴音機 -->
+    <div class="amp-wrapper">
+        <div class="amp-title">🎵 《 一个可爱的清晨 》2 女声</div>
+    <div class="amp">
+      <audio class="audio-player">
+        <source src="https://raw.githubusercontent.com/hilcm/CD-record/main/morning_new.mp3" type="audio/mpeg">
+           </audio>
+        <div class="amp-controls">
+          <button class="play">▶</button>
+          <button class="pause">Ⅱ</button>
+          <button class="stop">■</button>
+          <label>音量</label>
+          <input class="volume" type="range" min="0" max="1" step="0.05" value="0.8">
+        </div>
+      </div>
+      <!-- 新增：隱藏的歌詞資料區 -->
+      <div class="lyrics-data" style="display:none;">
+《一个可爱的清晨》2
+   微电影《斜晖脉脉》主题曲
+作曲：秋潭　　　填词：秋潭
+
+谁把蓝空抹得纯洁天真
+谁用劳累敲打了一生
+是那含泪的孩子
+那默默工作的老人
+是那含泪的孩子
+那默默工作的老人        
+……   ……   ……
+孩子哟你笑吧
+你呐喊飞奔
+血浇的花朵
+泪灌的花朵
+最是甜美缤纷
+血浇的花朵
+泪灌的花朵
+最是甜美缤纷
+……   ……   ……
+片片落叶
+带来了秋的消息
+愿飒爽的风哟
+溶和汗与泪
+化作永恒
+化作美善真
+在这可爱的清晨
+
+      </div>
+    </div>
+  </div>
+
+ <script>
+// 極低干擾版 - 專門保護主頁舊博文歌詞
+(function() {
+  'use strict';
+
+  function initWrapper(wrapper) {
+    if (wrapper.dataset.ampInitialized === 'true') return;
+    wrapper.dataset.ampInitialized = 'true';
+
+    const player = wrapper.querySelector('.audio-player');
+    const playBtn = wrapper.querySelector('.play');
+    const pauseBtn = wrapper.querySelector('.pause');
+    const stopBtn = wrapper.querySelector('.stop');
+    const volumeSlider = wrapper.querySelector('.volume');
+    const lyricsData = wrapper.querySelector('.lyrics-data');
+    const lyricsText = lyricsData ? lyricsData.textContent.trim() : '';
+
+    if (!player || !playBtn) return;
+
+    // 初始音量
+    if (volumeSlider) {
+      player.volume = parseFloat(volumeSlider.value);
+      volumeSlider.addEventListener('input', function() {
+        player.volume = parseFloat(this.value);
+      });
+    }
+
+    // 播放按鈕
+    playBtn.addEventListener('click', function() {
+      // 極度保守：只操作自己這個 wrapper，絕不碰外面
+      const myWrapper = wrapper;
+
+      // 只清除自己 wrapper 內的歌詞（絕不清除其他文章的）
+      myWrapper.querySelectorAll('.lyrics-container').forEach(el => el.remove());
+
+      // 只停止自己 wrapper 內的其他播放器
+      myWrapper.querySelectorAll('.audio-player').forEach(p => {
+        if (p !== player) {
+          p.pause();
+          p.currentTime = 0;
+        }
+      });
+
+      player.play();
+
+      // 建立歌詞容器
+      const lyricsDiv = document.createElement('div');
+      lyricsDiv.className = 'lyrics-container';
+      const content = document.createElement('div');
+      content.className = 'lyrics-text';
+      content.textContent = lyricsText;
+      lyricsDiv.appendChild(content);
+
+      // 決定位置
+      const siblings = myWrapper.parentNode.querySelectorAll('.amp-wrapper');
+      const index = Array.prototype.indexOf.call(siblings, wrapper);
+      lyricsDiv.style.left = "0";
+      lyricsDiv.style.transform = (index === 0) ? "translateX(95%)" : "translateX(-100%)";
+      lyricsDiv.style.height = "100%";
+
+      myWrapper.appendChild(lyricsDiv);
+      lyricsDiv.style.animation = "fadein 2s ease-in forwards";
+
+      // 播放結束淡出
+      player.addEventListener('ended', function handler() {
+        lyricsDiv.style.animation = 'fadeoutShrink 2s ease-out forwards';
+        setTimeout(() => {
+          if (lyricsDiv && lyricsDiv.parentNode) lyricsDiv.remove();
+        }, 2000);
+        player.removeEventListener('ended', handler);
+      }, { once: true });
+    });
+
+    // 暫停與停止
+    pauseBtn?.addEventListener('click', () => player.pause());
+
+    stopBtn?.addEventListener('click', () => {
+      player.pause();
+      player.currentTime = 0;
+      wrapper.querySelectorAll('.lyrics-container').forEach(el => el.remove());
+    });
+  }
+
+  // 只初始化「還沒初始化」的 wrapper
+  document.querySelectorAll('.amp-wrapper:not([data-ampInitialized])').forEach(initWrapper);
+
+  // 移除 MutationObserver，避免持續監聽整個頁面干擾舊博文
+  // （這是導致舊博文歌詞消失的最可能原因）
+
+})();
+</script>
+  
+<a class="lyrics-link" 
+   href="https://sites.google.com/view/spring-breezes/秋日清潭/文学剧本?authuser=0" 
+   target="_blank" 
+   style="color:red !important;">
+👉 点此进入微电影《斜晖脉脉》文学剧本版面
+</a>
+
+</body>
+</html>
+ 
